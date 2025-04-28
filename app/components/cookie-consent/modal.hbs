@@ -1,0 +1,27 @@
+<div class="cookie-consent-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+  <div class="modal-content">
+    <h2 id="modal-title">Manage Cookies</h2>
+
+    <form>
+      <label>
+        <input type="checkbox" checked={{this.preferences.globalCookies}} {{on "change" (fn this.toggle "globalCookies")}}>
+        Global Cookies
+      </label>
+      <label>
+        <input type="checkbox" checked={{this.preferences.localCookies}} {{on "change" (fn this.toggle "localCookies")}}>
+        Local Cookies
+      </label>
+      <label>
+        <input type="checkbox" checked={{this.preferences.analyticsCookies}} {{on "change" (fn this.toggle "analyticsCookies")}}>
+        Analytics Cookies
+      </label>
+    </form>
+
+    <div class="modal-buttons">
+      <button type="button" {{on "click" this.save}}>Save Preferences</button>
+      <button type="button" {{on "click" @acceptAll}}>Accept All</button>
+      <button type="button" {{on "click" @declineAll}}>Decline All</button>
+      <button type="button" {{on "click" @cancelManage}}>Cancel</button>
+    </div>
+  </div>
+</div>

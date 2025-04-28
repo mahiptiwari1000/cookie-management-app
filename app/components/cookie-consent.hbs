@@ -1,0 +1,18 @@
+<div class="cookie-consent-popup">
+  <p>We use cookies to improve your experience. Manage your preferences below.</p>
+  <div class="buttons">
+    <button {{on "click" this.acceptAll}}>Accept All</button>
+    <button {{on "click" this.declineAll}}>Decline All</button>
+    <button {{on "click" this.toggleManageCookies}}>Manage Cookies</button>
+  </div>
+</div>
+
+{{#if this.showManageModal}}
+<CookieConsent::Modal
+    @preferences={{this.preferences}}
+    @savePreferences={{this.savePreferences}}
+    @cancelManage={{this.toggleManageCookies}}
+    @acceptAll={{this.acceptAll}}
+    @declineAll={{this.declineAll}}
+  />
+{{/if}}
